@@ -24,21 +24,41 @@ namespace Generics
             list1.Add("Hello world!");
             list1.Add("My name is");
             list1.Add("John");
-            Console.WriteLine(list1.GetString());
+            // Because we overrided ToString()
+            Console.WriteLine(list1);
+            // Get value at index = 1
+            Console.WriteLine($"list1[1] = {list1.Get(1)}");
+            // Remove first item
+            list1.RemoveAt(0);
+            Console.WriteLine($"After RemoveAt[0] -> {list1}");
+            // The following line will throw an IndexOutOfRangeException
+            //list1.RemoveAt(5);
+            // We can bulletproof our code with try-catch 
+            // and run alternative code if exception is thrown
+            try 
+            {
+                list1.RemoveAt(8);
+            }
+            catch 
+            {
+                Console.WriteLine("Exception was thrown!");
+            }
 
             Console.WriteLine("-- Generic linked list with integers");
             LinkedListGeneric<int> list2 = new LinkedListGeneric<int>();
             list2.Add(10);
             list2.Add(2);
             list2.Add(100);
-            Console.WriteLine(list2.GetString());
+            // Because we overrided ToString()
+            Console.WriteLine(list2);
 
             Console.WriteLine("-- Generic linked list with booleans");
             LinkedListGeneric<bool> list3 = new LinkedListGeneric<bool>();
             list3.Add(false);
             list3.Add(false);
             list3.Add(true);
-            Console.WriteLine(list3.GetString());
+            // Because we overrided ToString()
+            Console.WriteLine(list3);
 
             Console.ReadKey();
         }

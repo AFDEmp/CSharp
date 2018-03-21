@@ -1,3 +1,5 @@
+using System;
+
 namespace Generics {
     class LinkedListGeneric<T>
     {
@@ -60,8 +62,55 @@ namespace Generics {
             current.Next = new Node<T>(value);
         }
 
-        // return a string representation of the list
-        public string GetString()
+        public T Get(int index) {
+            // With this we make sure that index
+            // points to a valid Node
+            if (index < 0 || index >= Count)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            // so our loop just cares about reaching index
+            Node<T> current = head;
+            int i = 0;
+            while (i < index) 
+            {
+                current = current.Next;
+                i++;
+            }
+            // we reached index so we return the corresponding value
+            return current.Value;
+        }
+
+        public void RemoveAt(int index) {
+            // With this we make sure that index
+            // points to a valid Node
+            if (index < 0 || index >= Count)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            // If we want to erase the first item
+            // just move the head
+            if (index == 0) {
+                head = head.Next;
+                return;
+            }
+            // Else reach index and connect Node index-1 with Node index + 1
+            Node<T> current = head;
+            Node<T> previous = null;
+            int i = 0;
+            while (i < index) 
+            {
+                previous = current;
+                current = current.Next;
+            }
+            previous.Next = current.Next;
+            return;
+        }
+
+        // Return a string representation of the list.
+        // We make use of inheritance and the fact that every class
+        // inherits from base class Object
+        public override string ToString()
         {
             if (head == null)
             {
