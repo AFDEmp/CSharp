@@ -11,8 +11,8 @@
 </p>
 
 ## Contributors
-[![George Pasparakis](https://avatars2.githubusercontent.com/u/457547?s=460&v=4)](https://github.com/davidoster)
+[George Pasparakis](https://github.com/davidoster) - Academic Programmes Lead
 
-[![Vyron Vasileiadis](https://avatars0.githubusercontent.com/u/3442573?s=460&v=4)](https://github.com/fedonman)
+[Vyron Vasileiadis](https://github.com/fedonman) - Educator
 
-[![Michalis Nikolaidis](https://avatars2.githubusercontent.com/u/2457869?s=400&v=4)](https://github.com/mnikolaidis)
+[Michalis Nikolaidis](https://github.com/mnikolaidis) - Educator
