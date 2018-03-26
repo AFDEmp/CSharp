@@ -16,9 +16,12 @@ namespace Exercise_3
             int spaces = quote.Split(' ').Length - 1;
             //Output: 8
 
+            
             Console.Write("Insert a quote: ");
             string userQuote = Console.ReadLine().Trim();
-            int userQuoteSpaces = userQuote.Split(' ').Length;
+            int userQuoteSpaces = userQuote.Split(' ').Length - 1;
+
+            quote.Count(Char.IsWhiteSpace);
 
             // LINQ
             int spacesCount = quote.Count(i => i == ' ');
