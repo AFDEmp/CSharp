@@ -19,6 +19,7 @@ namespace Exercise_Fraction
             Fraction fraction5 = 5 * fraction1 * fraction2 * 40;
             Console.WriteLine(fraction5);
 
+            // try to catch exception
             try {
                 Fraction fraction6 = Fraction.Parse("9");
                 Console.WriteLine(fraction6);
