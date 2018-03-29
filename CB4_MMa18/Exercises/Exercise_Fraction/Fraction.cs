@@ -66,8 +66,14 @@ namespace Exercise_Fraction
             if (splitted.Length != 2) {
                 throw new ArgumentException("str must be of format 1/3");
             }
-            int numerator = int.Parse(splitted[0]);
-            int denominator = int.Parse(splitted[1]);
+            int numerator;
+            if (!int.TryParse(splitted[0], out numerator)) {
+                throw new ArgumentException("str must be of format 'x/y' where x and y are integers");
+            }
+            int denominator;
+            if (!int.TryParse(splitted[1], out denominator)) {
+                throw new ArgumentException("str must be of format 'x/y' where x and y are integers");
+            }
             return new Fraction(numerator, denominator);
         }
     }
