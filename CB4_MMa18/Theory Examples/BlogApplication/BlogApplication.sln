@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApplication.Data", "src\BlogApplication.Data\BlogApplication.Data.csproj", "{43D896EF-530C-4EC5-945F-E159FA3DC6C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "schema", "schema", "{164FB2EF-B3D2-4850-AA1A-1C0BC94217F6}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\Desktop\BlogingDb.sql = ..\..\..\..\..\..\Desktop\BlogingDb.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
