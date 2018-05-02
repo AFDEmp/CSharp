@@ -12,6 +12,7 @@
             <th scope="col">ID</th>
             <th scope="col">Title</th>
             <th scope="col">Url</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
                 <td>@blog.Id</td>
                 <td>@blog.Title</td>
                 <td><a href="@blog.Url">@blog.Url</a></td>
+                <td><a href="/Blog/Edit/@blog.Id">Edit</a></td>
             </tr>
         }
     </tbody>

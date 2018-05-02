@@ -1,0 +1,21 @@
+﻿@model BlogApplication.Data.Blog
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form method="post">
+    <input type="hidden" value="@Model.Id" name="id" >
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="@Model.Title">
+    </div>
+    <div class="form-group">
+        <label>Url</label>
+        <input type="text" class="form-control" id="url" name="url" placeholder="Url" value="@Model.Url">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

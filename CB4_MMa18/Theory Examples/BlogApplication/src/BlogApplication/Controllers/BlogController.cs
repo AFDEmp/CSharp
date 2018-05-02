@@ -1,5 +1,4 @@
 ﻿using BlogApplication.Data;
-using BlogApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +9,42 @@ namespace BlogApplication.Controllers
 {
     public class BlogController : Controller
     {
+        private readonly IBlogsRepository _repository = new BlogsRepository();
+
         // GET: Blog
         public ActionResult Index()
         {
-            using (BlogDbContext db = new BlogDbContext("BlogDb"))
-            {
-                return View(db.Blogs.ToList());
-            }      
+            return View(_repository.GetAllBlogs());
         }
 
         public ActionResult FindBlog(int id)
         {
-            return View(BlogsList.GetAllBlogs().Find(i => i.Id == id));
+            return View(_repository.FindBlogById(id));
+        }
+
+        
+        public ActionResult Edit(int id)
+        {
+            return View(_repository.FindBlogById(id));
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Blog blog)
+        {
+            _repository.UpdateBlog(blog);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Blog blog)
+        {
+            _repository.CreateBlog(blog);
+            return RedirectToAction("Index");
         }
     }
 }

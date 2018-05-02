@@ -9,7 +9,7 @@ namespace BlogApplication.Data
 {
     public class BlogDbContext : DbContext
     {
-        public BlogDbContext(string connection) : base(connection)
+        public BlogDbContext() : base("BlogDb")
         {
 
         }

@@ -1,0 +1,26 @@
+﻿@model BlogApplication.Models.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Model.Student.Name
+@Model.Student.Surname
+
+<ul>
+    @foreach(var item in Model.Numbers)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+
+@*@ViewData["value"]
+
+
+@ViewBag.Message
+
+
+@ViewData["pasparakis"]*@
