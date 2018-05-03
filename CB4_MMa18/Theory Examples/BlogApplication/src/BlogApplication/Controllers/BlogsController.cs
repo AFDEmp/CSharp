@@ -7,8 +7,8 @@ using System.Web.Mvc;
 
 namespace BlogApplication.Controllers
 {
-    [Authorize]
-    public class BlogController : Controller
+    
+    public class BlogsController : Controller
     {
         private readonly IBlogsRepository _repository = new BlogsRepository();
 
