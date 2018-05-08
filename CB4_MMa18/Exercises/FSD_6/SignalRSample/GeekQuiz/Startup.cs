@@ -25,7 +25,8 @@ namespace GeekQuiz
     {
         public void Configuration(IAppBuilder app)
         {
-            this.ConfigureAuth(app);            
+            this.ConfigureAuth(app);
+            app.MapSignalR();
         }
     }
 }

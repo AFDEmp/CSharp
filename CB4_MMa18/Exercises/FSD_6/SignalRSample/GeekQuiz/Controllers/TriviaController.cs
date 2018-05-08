@@ -22,7 +22,8 @@ namespace GeekQuiz.Controllers
     using System.Threading.Tasks;
     using System.Web.Http;
     using System.Web.Http.Description;
-    using GeekQuiz.Models;    
+    using GeekQuiz.Models;
+    using GeekQuiz.Services;
 
     [Authorize]
     public class TriviaController : ApiController
@@ -56,7 +57,11 @@ namespace GeekQuiz.Controllers
 
             answer.UserId = User.Identity.Name;
 
-            var isCorrect = await this.StoreAsync(answer);            
+            var isCorrect = await this.StoreAsync(answer);
+
+            var statisticsService = new StatisticsService(this.db);
+            await statisticsService.NotifyUpdates();
+
             return this.Ok<bool>(isCorrect);
         }
 

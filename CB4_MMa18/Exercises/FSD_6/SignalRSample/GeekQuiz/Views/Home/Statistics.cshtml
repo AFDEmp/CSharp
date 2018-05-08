@@ -44,8 +44,9 @@
         </div>
     </div>
 </section>
-
 @section Scripts {
+    @Scripts.Render("~/Scripts/jquery.signalR-2.2.3.min.js")
+    @Scripts.Render("~/signalr/hubs")
     @Scripts.Render("~/Scripts/flotr2.js")
     @Scripts.Render("~/Scripts/statistics.js")
     <script>
@@ -63,5 +64,17 @@
         $(window).bind("resize", function () {
             showCharts(statisticsData);
         }).trigger("resize");
+
+        var connection = $.hubConnection();
+        var hub = connection.createHubProxy("StatisticsHub");
+        hub.on("updateStatistics", function (statistics) {
+            statisticsData = statistics;
+            $('#correctAnswersCounter').text(statistics.CorrectAnswers);
+            $('#incorrectAnswersCounter').text(statistics.IncorrectAnswers);
+
+            showCharts(statisticsData);
+        });
+
+        connection.start();
     </script>
 }

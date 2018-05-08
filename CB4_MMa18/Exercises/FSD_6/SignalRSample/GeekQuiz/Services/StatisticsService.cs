@@ -18,9 +18,11 @@ namespace GeekQuiz.Services
 {
     using System.Data.Entity;
     using System.Linq;
-    using System.Threading.Tasks;    
-    using GeekQuiz.Models;    
-    
+    using System.Threading.Tasks;
+    using GeekQuiz.Hubs;
+    using GeekQuiz.Models;
+    using Microsoft.AspNet.SignalR;
+
     public class StatisticsService
     {
         private TriviaContext db;
@@ -47,6 +49,17 @@ namespace GeekQuiz.Services
                 IncorrectAnswersAverage = (totalUsers > 0) ? incorrectAnswers / totalUsers : 0,
                 TotalAnswersAverage = (totalUsers > 0) ? totalAnswers / totalUsers : 0,
             };
+        }
+
+        public async Task NotifyUpdates()
+        {
+            var hubContext = GlobalHost.ConnectionManager
+                .GetHubContext<StatisticsHub>();
+            if (hubContext != null)
+            {
+                StatisticsViewModel stats = await this.GenerateStatistics();
+                hubContext.Clients.All.updateStatistics(stats);
+            }
         }
     }
 }
