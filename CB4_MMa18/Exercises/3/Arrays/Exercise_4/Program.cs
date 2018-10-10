@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise_4
 {
@@ -50,11 +46,6 @@ namespace Exercise_4
                     } while (!isValidInput);
 
                     matrix[i, j] = element;
-
-                    if (i == j)
-                    {
-                        leftSum += element;
-                    }
                 }
             }
 
@@ -77,9 +68,11 @@ namespace Exercise_4
             for (int i = 0; i < size; i++)
             {
                 leftSum += matrix[i, i];
+                rightSum += matrix[i, size - 1 - i];
             }
 
             Console.WriteLine($"Sum of the left diagonal elements is: {leftSum}");
+            Console.WriteLine($"Sum of the right diagonal elements is: {rightSum}");
 
 
 
