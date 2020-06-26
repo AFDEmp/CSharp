@@ -12,7 +12,3 @@
 
 ## Contributors
 [George Pasparakis](https://github.com/davidoster) - Academic Programmes Lead
-
-[Vyron Vasileiadis](https://github.com/fedonman) - Educator
-
-[Michalis Nikolaidis](https://github.com/mnikolaidis) - Educator
